@@ -31,7 +31,7 @@ function App() {
     };
     fetch("http://localhost:3000/peliculas", requestOptions)
       .then((response) => response.json())
-      .then((data) => this.setState({ postId: data.id }));
+      .then((data) => {console.log('ENVIADO!!');console.log(data);/*this.setState({ postId: data.id })*/});
   };
 
   useEffect(() => {

@@ -55,6 +55,18 @@
     {
       "id": "10",
       "nombre": "diez"
+    },
+    {
+      "id": "11",
+      "nombre": "once"
+    },
+    {
+      "id": "12",
+      "nombre": "doce"
+    },
+    {
+      "id": "13",
+      "nombre": "trece"
     }
   ],
   "clasificaciones": [
