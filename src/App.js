@@ -8,6 +8,32 @@ import "./App.css";
 function App() {
   const [peliculas, setPeliculas] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [nombre, setNombre] = useState("");
+  const [id, setId] = useState("");
+
+  const handleNombreChange = (e) => {
+    setNombre(e.target.value);
+  };
+
+  const handleIdChange = (e) => {
+    setId(e.target.value);
+  };
+
+  const addnewelement = (e) => {
+    e.preventDefault();
+
+    console.log("voy a mandar id:" + id + ", nombre:" + nombre);
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: id, nombre: nombre }),
+    };
+    fetch("http://localhost:3000/peliculas", requestOptions)
+      .then((response) => response.json())
+      .then((data) => this.setState({ postId: data.id }));
+  };
+
   useEffect(() => {
     fetch("http://localhost:3000/peliculas")
       .then((response) => response.json())
@@ -29,6 +55,25 @@ function App() {
 
   return (
     <div className="App">
+      <input
+        onChange={handleNombreChange}
+        type="text"
+        name="nombre"
+        id="nombre"
+        placeholder="nombre"
+        value={nombre}
+      />
+      <input
+        onChange={handleIdChange}
+        type="text"
+        name="id"
+        id="id"
+        placeholder="id"
+        value={id}
+      />
+      <button type="button" name="add" onClick={addnewelement}>
+        ADD
+      </button>
       {/*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
