@@ -29,13 +29,13 @@ function App() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: id, nombre: nombre }),
     };
-    fetch("http://localhost:3000/peliculas", requestOptions)
+    fetch("https://databindingexampledatabase.herokuapp.com/peliculas", requestOptions)
       .then((response) => response.json())
       .then((data) => {console.log('ENVIADO!!');console.log(data);/*this.setState({ postId: data.id })*/});
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/peliculas")
+    fetch("https://databindingexampledatabase.herokuapp.com//peliculas")
       .then((response) => response.json())
       .then((peliculas) => {
         console.log(peliculas);
