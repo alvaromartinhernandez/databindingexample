@@ -35,7 +35,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("https://databindingexampledatabase.herokuapp.com//peliculas")
+    fetch("https://databindingexampledatabase.herokuapp.com/peliculas")
       .then((response) => response.json())
       .then((peliculas) => {
         console.log(peliculas);
